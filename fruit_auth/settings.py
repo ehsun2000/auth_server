@@ -31,15 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'user_auth_api',
+    # Django內建應用程式
+    'django.contrib.admin',  # 管理員界面
+    'django.contrib.auth',  # 用戶身份驗證
+    'django.contrib.contenttypes',  # 內容類型管理
+    'django.contrib.sessions',  # 會話管理
+    'django.contrib.messages',  # 訊息框架
+    'django.contrib.staticfiles',  # 靜態檔案管理
+
+    # 第三方套件
+    'rest_framework',  # Django REST framework
+    'user_auth_api',  # 用戶身份驗證和授權API
+    'drf_yasg',  # Swagger UI和ReDoc文檔生成
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
