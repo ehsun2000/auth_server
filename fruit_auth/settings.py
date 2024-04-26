@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# 加載 .env 文件
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,8 +87,12 @@ WSGI_APPLICATION = 'fruit_auth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  #PostgreSQL
+        'NAME': os.getenv('DB_NAME'),  #資料庫名稱
+        'USER':  os.getenv('DB_USERNAME'),  #資料庫帳號
+        'PASSWORD': os.getenv('DB_PASSWORD'),  #資料庫密碼
+        'HOST': os.getenv('DB_HOST'),  #Server(伺服器)位址
+        'PORT': os.getenv('DB_PORT'),  #PostgreSQL Port號
     }
 }
 
@@ -110,9 +119,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-hant'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC+8'
 
 USE_I18N = True
 
